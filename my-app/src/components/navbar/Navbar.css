@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Racing+Sans+One&display=swap');
+
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    width: 100%;
+    height: 141px;
+    left: 0px;
+    top: 0px;
+
+    background: linear-gradient(100.59deg, #0989FF 11.55%, #5400C0 88.45%);
+}
+
+.nav-logo{
+    position: absolute;
+    width: 227px;
+    height: 43px;
+    left: 99px;
+    top: 66px;
+    display: flex;
+    align-items: center;
+}
+.nav-logo p{
+    font-family: 'Racing Sans One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 78px;
+    line-height: 98px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.nav-geo-icon{
+    position: absolute;
+    display: flex;
+    width: 127px;
+    height: 24px;
+    left: 99px;
+    top: 21px;
+}
+
+.nav-geo-text{
+    position: absolute;
+    width: 100px;
+    height: 17px;
+    left: 126px;
+    top: 24px;
+    display: flex;
+    align-items: center;
+   
+}
+
+.nav-geo-text p{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+
+    text-align: center;
+
+    color: #F5F5F5;
+}
+
+.nav-catalog-icon{
+    position: absolute;
+    width: 54px;
+    height: 48px;
+    left: 390px;
+    top: 68px;
+}
+
+.nav-input{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+    box-sizing: border-box;
+    position: absolute;
+    width: 50%;
+    height: 52px;
+    left: 507px;
+    top: 66px;
+    border-radius: 5px;
+}
+
+.nav-language-icon{
+    position: absolute;
+    width: 40px;
+    height: 33px;
+    left: 1542px;
+    top: 66px;
+}
+
+.nav-person-icon{
+    position: absolute;
+    width: 53px;
+    height: 50px;
+    left: 1614px;
+    top: 66px;
+}
+
+.nav-orders-icon{
+    position: absolute;
+    width: 60px;
+    height: 51px;
+    left: 1691px;
+    top: 66px;
+}
+
+.nav-cart-icon{
+    position: absolute;
+    width: 43px;
+    height: 44px;
+    left: 1777px;
+    top: 62px;
+}
+

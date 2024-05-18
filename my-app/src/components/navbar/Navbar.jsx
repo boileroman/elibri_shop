@@ -7,6 +7,7 @@ import person_icon from '../assets/Person fill.png'
 import cart_icon from '../assets/shopping-cart-solid.png'
 import orders_icon from '../assets/Briefcase.png'
 import { Link } from "react-router-dom"
+import { CART_ROUTE, ORDER_ROUTE, SHOP_ROUTE } from '../../utils/const'
 
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -15,9 +16,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 const Navbar = () => {
   return (
     <div className='navbar'>
-        <div className='nav-logo'>
-            <p>ELIBRI</p>
-            <Link to = '/'>ELIBRI</Link>
+        <div className='nav-logo'>            
+            <Link to = {SHOP_ROUTE}><p>ELIBRI</p></Link>
         </div>
         <div className='nav-geo'>
             <div className='nav-geo-icon'>
@@ -44,13 +44,13 @@ const Navbar = () => {
             <img src={language_icon} alt=''/>
         </div>
         <div className='nav-orders-icon'>
-            <img src={orders_icon} alt=''/>
+            <Link to = {ORDER_ROUTE}><img src={orders_icon} alt=''/></Link>
         </div>
         <div className='nav-person-icon'>
             <img src={person_icon} alt=''/>
         </div>
         <div className='nav-cart-icon'>
-            <img src={cart_icon} alt=''/>
+            <Link to = {CART_ROUTE}><img src={cart_icon} alt=''/></Link>
         </div>
     </div>
   )

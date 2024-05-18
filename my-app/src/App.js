@@ -7,7 +7,7 @@ import { authRoutes, publicRoutes } from './routes';
 import { SHOP_ROUTE } from './utils/const';
 
 function App() {
-  const isAuth = true
+  const isAuth = false
   return (
     <div>
       <Navbar/>

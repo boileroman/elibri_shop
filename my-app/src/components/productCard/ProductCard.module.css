@@ -1,0 +1,14 @@
+.link {
+    width: 400px;
+    height: 410px;
+    object-fit: cover;
+  }
+  
+  .item {
+    margin: 20px;
+  }
+  
+  .counter {
+    display: flex;
+    gap: 5px;
+  }

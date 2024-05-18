@@ -1,8 +1,9 @@
 import Cart from "./pages/Cart"
+import Category from "./pages/Category"
 import Orders from "./pages/Orders"
 import ProductPage from "./pages/ProductPage"
 import Shop from "./pages/Shop"
-import { CART_ROUTE, DEVICE_ROUTE, ORDER_ROUTE, SHOP_ROUTE } from "./utils/const"
+import { CART_ROUTE, CATEGORY_ROUTE, DEVICE_ROUTE, ORDER_ROUTE, SHOP_ROUTE } from "./utils/const"
 
 
 export const authRoutes = [
@@ -22,7 +23,11 @@ export const publicRoutes = [
         Component: Shop
     },
     {
-        path: DEVICE_ROUTE + '/:id',
+        path: CATEGORY_ROUTE + '/:id',
         Component: ProductPage
+    },
+    {
+        path: CATEGORY_ROUTE,
+        Component: Category
     },
 ]

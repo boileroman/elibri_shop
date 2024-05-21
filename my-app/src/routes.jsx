@@ -1,5 +1,5 @@
 import Cart from "./pages/Cart"
-import Category from "./pages/Category"
+import Category from "./pages/category/Category"
 import Orders from "./pages/Orders"
 import ProductPage from "./pages/ProductPage"
 import Shop from "./pages/Shop"
@@ -23,7 +23,7 @@ export const publicRoutes = [
         Component: Shop
     },
     {
-        path: CATEGORY_ROUTE + '/:id',
+        path: CATEGORY_ROUTE + '/:itemId',
         Component: ProductPage
     },
     {

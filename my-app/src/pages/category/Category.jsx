@@ -4,35 +4,35 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const Category = () => {
-    const { category } = useParams();
-    const [item, setItem] = React.useState();
+    const { id } = useParams();
+    const [category, setCategory] = React.useState();
   
     const navigate = useNavigate();
   
     React.useEffect(() => {
-      async function fetchItems() {
+      async function fetchCategories() {
         try {
-          const res = await axios.get('https://662a6f4f67df268010a3ec12.mockapi.io/category/' + category);
-          setItem(res.data);
+          const res = await axios.get('https://662a6f4f67df268010a3ec12.mockapi.io/category/' + id);
+         setCategory(res.data);
         } catch (err) {
           console.log(err);
           navigate('/');
         }
       }
-      fetchItems();
+      fetchCategories();
     }, []);
   
-    console.log(item);
+    console.log(category);
   
-    if (!item) {
+    if (!category) {
       return 'Загрузка...';
     }
   
     return (
       <div>
-        <img src={item?.link} className={style.link} />
-        <p>{item?.name}</p>
-        <p>{item?.price}</p>
+        <img src={category?.image} className={style.image} />
+        <p>{category?.name}</p>
+        <p>{category?.price}</p>
       </div>
     );
 }

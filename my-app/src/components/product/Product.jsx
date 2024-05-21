@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "../categoryCard/CategoryCard";
+import CategoryCard from "../categoryCard/CategoryCard";
 import '../../App.css';
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
@@ -27,7 +27,7 @@ const Product = () =>{
         <div>
             <div className="items">
             {products.map((product)=>(
-                <ProductCard key={product.itemId} {...product} />
+                <CategoryCard key={product.itemId} {...product} />
             ))}
             </div>
         </div>

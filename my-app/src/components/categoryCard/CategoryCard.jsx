@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import style from './CategoryCard.module.css';
 import { Link } from 'react-router-dom';
 
-const ProductCard = ({ id, name, price, image, itemId }) => {
+const CategoryCard = ({ id, name, price, image, itemId }) => {
   // const [isShow, setIsShow] = useState(false);
   // const dispatch = useDispatch();
 
@@ -19,12 +19,12 @@ const ProductCard = ({ id, name, price, image, itemId }) => {
     <div>
       <div className={style.item}>
         <Link to={`/${id}`} className={style.link}>
-          <img className={style.image} src={image} alt=''/>
           <p>{id}</p>
+          <img className={style.image} src={image} alt=''/>
         </Link>
       </div>
     </div>
   );
 };
 
-export default ProductCard;
+export default CategoryCard;

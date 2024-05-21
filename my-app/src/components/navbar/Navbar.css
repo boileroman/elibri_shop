@@ -24,17 +24,6 @@
     align-items: center;
     
 }
-.nav-logo p{
-    font-family: 'Racing Sans One';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 78px;
-    line-height: 98px;
-    text-align: center;
-
-    color: #FFFFFF;
-}
-
 .nav-geo-icon{
     position: absolute;
     display: flex;
@@ -49,7 +38,7 @@
     width: 100px;
     height: 17px;
     left: 126px;
-    top: 24px;
+    top: 33px;
     display: flex;
     align-items: center;
    
@@ -72,7 +61,7 @@
     width: 54px;
     height: 48px;
     left: 390px;
-    top: 68px;
+    top: 65px;
 }
 
 .nav-input{

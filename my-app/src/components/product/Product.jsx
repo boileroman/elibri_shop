@@ -23,19 +23,19 @@ const Product = () =>{
         fetchItems()
     }, []);
 
-    const AddProduct = () =>{
-        axios.post('https://662a6f4f67df268010a3ec12.mockapi.io/items',   {
-            id: 3,
-            name: "Dubrovsky",
-            price: 240,
-            link: "https://th.bing.com/th/id/OIP.3oMC3cORhIzqBdBpBPI-7wHaL0?rs=1&pid=ImgDetMain"
-          }, 
-          {'content-type': 'application/json'},
-        ).then((res)=>{
-            console.log(res.data);
-            fetchItems();
-        })
-    }
+    // const AddProduct = () =>{
+    //     axios.post('https://662a6f4f67df268010a3ec12.mockapi.io/items',   {
+    //         id: 3,
+    //         name: "Dubrovsky",
+    //         price: 240,
+    //         link: "https://th.bing.com/th/id/OIP.3oMC3cORhIzqBdBpBPI-7wHaL0?rs=1&pid=ImgDetMain"
+    //       }, 
+    //       {'content-type': 'application/json'},
+    //     ).then((res)=>{
+    //         console.log(res.data);
+    //         fetchItems();
+    //     })
+    // }
 
     return(
         <div>

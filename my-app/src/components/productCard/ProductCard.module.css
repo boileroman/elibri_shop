@@ -1,4 +1,4 @@
-.link {
+  .image {
     width: 400px;
     height: 410px;
     object-fit: cover;
@@ -12,3 +12,14 @@
     display: flex;
     gap: 5px;
   }
+  .link{
+    text-decoration: none;
+    color: black;  
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px; 
+  }
+
+

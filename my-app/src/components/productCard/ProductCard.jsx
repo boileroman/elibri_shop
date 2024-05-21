@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import style from './ProductCard.module.css';
 import { Link } from 'react-router-dom';
 
-const ProductCard = ({ id, name, price, link, category }) => {
+const ProductCard = ({ id, name, price, image, category }) => {
   // const [isShow, setIsShow] = useState(false);
   // const dispatch = useDispatch();
 
@@ -18,11 +18,11 @@ const ProductCard = ({ id, name, price, link, category }) => {
   return (
     <div>
       <div className={style.item}>
-        <Link to={`/${category}`}>
-          <img className={style.link} src={link} alt=''/>
+        <Link to={`/${category}`} className={style.link}>
+          <img className={style.image} src={image} alt=''/>
+          <p>{category}</p>
         </Link>
-          <p>{name}</p>
-          <p>{price} руб.</p>
+
 
         {/* <div className={style.counter}>
           <p>{addedCount}</p>

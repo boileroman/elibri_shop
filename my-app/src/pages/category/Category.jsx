@@ -2,6 +2,7 @@ import React from 'react'
 import style from './Category.module.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import CategoryProducts from '../categoryProducts/CategoryProducts';
 
 const Category = () => {
     const { id } = useParams();
@@ -30,9 +31,7 @@ const Category = () => {
   
     return (
       <div>
-        <img src={category?.image} className={style.image} />
-        <p>{category?.name}</p>
-        <p>{category?.price}</p>
+        <CategoryProducts />
       </div>
     );
 }

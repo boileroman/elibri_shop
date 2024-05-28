@@ -1,7 +1,7 @@
 import Cart from "./pages/Cart"
 import Category from "./pages/category/Category"
 import Orders from "./pages/Orders"
-import ProductPage from "./pages/ProductPage"
+import ProductPage from "./pages/productPage/ProductPage"
 import Shop from "./pages/Shop"
 import { CART_ROUTE, CATEGORY_ROUTE, DEVICE_ROUTE, ORDER_ROUTE, SHOP_ROUTE } from "./utils/const"
 

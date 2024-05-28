@@ -1,0 +1,9 @@
+.productP{
+    padding-top: 200px
+}
+
+.image {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+  }

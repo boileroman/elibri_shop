@@ -1,4 +1,4 @@
-import Cart from "./pages/Cart"
+import Cart from "./pages/cart/Cart"
 import Category from "./pages/category/Category"
 import Orders from "./pages/Orders"
 import ProductPage from "./pages/productPage/ProductPage"

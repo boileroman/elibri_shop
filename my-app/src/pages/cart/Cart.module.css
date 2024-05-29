@@ -1,0 +1,8 @@
+.cart {
+    margin-top: 150px;
+    gap: 20px;
+}
+
+.items{
+    display: flex;
+}

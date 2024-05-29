@@ -10,6 +10,7 @@
     height: 141px;
     left: 0px;
     top: 0px;
+    gap: 20px;
 
     background: linear-gradient(100.59deg, #0989FF 11.55%, #5400C0 88.45%);
 }

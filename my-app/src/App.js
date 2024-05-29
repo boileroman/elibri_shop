@@ -2,12 +2,12 @@ import './App.css';
 import Navbar from './components/navbar/Navbar';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Shop from './pages/Shop';
-import Cart from './pages/Cart';
+import Cart from './pages/cart/Cart';
 import { authRoutes, publicRoutes } from './routes';
 import { SHOP_ROUTE } from './utils/const';
 
 function App() {
-  const isAuth = false
+  const isAuth = true
   return (
     <div>
       <Navbar/>

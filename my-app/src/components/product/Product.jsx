@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import CategoryCard from "../categoryCard/CategoryCard";
 import '../../App.css';
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../../redux/productSlice";
+import style from './Product.module.css'
 
 const Product = () =>{
-//    const [products, setProducts] = useState([]);
     const products = useSelector((state) => state.product.products);
-
-    console.log(products)
 
     const dispatch = useDispatch()
 
@@ -25,7 +23,7 @@ const Product = () =>{
 
     return(
         <div>
-            <div className="items">
+            <div className={style.grid}>
             {products.map((product)=>(
                 <CategoryCard key={product.itemId} {...product} />
             ))}

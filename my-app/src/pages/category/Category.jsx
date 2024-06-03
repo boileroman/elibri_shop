@@ -31,7 +31,7 @@ const Category = () => {
   
     return (
       <div>
-        <CategoryProducts />
+        <CategoryProducts name={category.name}/>
       </div>
     );
 }

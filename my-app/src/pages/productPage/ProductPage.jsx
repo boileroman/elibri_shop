@@ -1,16 +1,18 @@
 import React from 'react'
-import Product from '../../components/product/Product'
 import style from './ProductPage.module.css'
 import { useParams, useNavigate } from 'react-router'
 import axios from 'axios'
+import { useState, useEffect } from 'react'
+import Description from '../../components/description/Description'
 
 const ProductPage = () => {
   const { id, itemId } = useParams();
-  const [item, setItem] = React.useState();
+  const [item, setItem] = useState();
+  const [descriptionActive, setDescriptionActive] = useState(false);
 
   const navigate = useNavigate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function fetchItems() {
       try {
         const res = await axios.get('https://662a6f4f67df268010a3ec12.mockapi.io/category/' + id + '/items/' + itemId);
@@ -30,10 +32,16 @@ const ProductPage = () => {
   }
 
   return (
-    <div className={style.productP}>
-      <img src={item?.image} className={style.image} />
-      <p>{item?.name}</p>
-      <p>{item?.price}</p>
+    <div>
+      <div className={style.description}>
+        <Description active={descriptionActive} setActive={setDescriptionActive} header={'Характеристики и описание'}/>        
+      </div>
+      <div className={style.productP}>
+        <img src={item?.image} className={style.image} alt=''/>
+        <p>{item?.name}</p>
+        <p>{item?.price}</p>  
+        <button className={style.button} onClick={() => {setDescriptionActive(!descriptionActive)}}>Описание {">"}</button>              
+      </div>      
     </div>
   )
 }

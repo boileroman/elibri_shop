@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setItems } from '../../redux/itemSlice';
 import ProductCard from '../../components/productCard/ProductCard';
 
-const CategoryProducts = () => {
+const CategoryProducts = ({name}) => {
   const items = useSelector((state) => state.item.items);
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -28,8 +28,9 @@ const CategoryProducts = () => {
 
 
   return (
-    <div>
-      <div className="items">
+    <div className={style.all}>
+      <p className={style.name}>{name}</p>
+      <div className={style.items}>
         {items.map((item)=>(
             <ProductCard key={item.itemId} {...item} />
         ))}

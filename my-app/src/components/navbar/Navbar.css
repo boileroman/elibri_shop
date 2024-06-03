@@ -5,7 +5,7 @@
 .navbar{
     display: flex;
     justify-content: space-around;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 141px;
     left: 0px;
@@ -63,6 +63,11 @@
     height: 48px;
     left: 390px;
     top: 65px;
+}
+
+.nav-catalog-button{
+    border: none;
+    background-color: transparent;
 }
 
 .nav-input{

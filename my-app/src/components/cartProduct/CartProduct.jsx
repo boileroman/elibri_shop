@@ -18,6 +18,7 @@ const CartProduct = ({image, name, price, itemId, id, count}) => {
     return (
       <div>
         <div className={style.root}>
+          <img className = {style.image} src = {image} alt=''/>
           <p>{name}</p>
           <button disabled={count == 1} onClick={onClickMinus}>
             -

@@ -1,13 +1,8 @@
 .image{
-    width: 200px;
-    height: 250px;
-    object-fit: cover;
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
 }
 .item {
-    margin: 20px;
-  }
-  
-.counter {
-display: flex;
-gap: 5px;
+  margin: 20px;
 }

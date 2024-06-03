@@ -1,0 +1,8 @@
+.footer{
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    left: 0px;
+    margin-top: 40px;
+    background: linear-gradient(100.59deg, #0989FF 11.55%, #5400C0 88.45%);
+}

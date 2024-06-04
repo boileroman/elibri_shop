@@ -11,7 +11,6 @@ export const cartSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       const isAdd = state.items.find((obj) => obj.itemId === action.payload.itemId);
-
       if (isAdd) {
         isAdd.count++;
       } else {

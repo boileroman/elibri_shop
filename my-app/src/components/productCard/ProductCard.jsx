@@ -5,7 +5,7 @@ import { addItem } from '../../redux/cartSlice'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 
-const ProductCard = ({image, name, price, itemId, id}) => {
+const ProductCard = ({image, name, price, itemId, id, stockQuantity}) => {
   const dispatch = useDispatch();
   const item = useSelector((state) => state.cart.items.find((obj) => obj.itemId === itemId));
   const addedCount = item ? item.count : 0;
@@ -14,14 +14,21 @@ const ProductCard = ({image, name, price, itemId, id}) => {
   };
   return (
     <div className={style.item}>
-        <Link to={`/${id}/${itemId}`}>
-          <img className={style.image} src={image} />
-          <p>{name}</p>
-          <p>{price} руб.</p>
-        </Link>
-        <div className={style.counter}>
-          <p>{addedCount}</p>
-          <button onClick={onClickAdd}>+</button>
+        <Link to={`/${id}/${itemId}`} className={style.about}>
+          <img className={style.image} src={image} alt=''/>
+          <div className={style.info}>
+            <div className={style.name_quantity}>
+              <p>{name}</p>
+              <p>: {stockQuantity} шт.</p>              
+            </div>
+          </div>
+        </Link>        
+        <div className={style.rightpart}>
+          <p className={style.price}>{price}₽</p> 
+          <div className={style.addCart}>
+            <p>{addedCount}</p>
+            <button onClick={onClickAdd}>+</button>            
+          </div>         
         </div>
     </div>
   )

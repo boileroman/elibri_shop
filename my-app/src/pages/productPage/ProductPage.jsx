@@ -4,11 +4,14 @@ import { useParams, useNavigate } from 'react-router'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Description from '../../components/description/Description'
+import { useDispatch, useSelector } from 'react-redux'
+import { setIsDescriptionActive } from '../../redux/descriptionSlice'
 
 const ProductPage = () => {
   const { categoryId, productId } = useParams();
   const [item, setItem] = useState();
-  const [descriptionActive, setDescriptionActive] = useState(false);
+  const { descriptionActive } = useSelector((state) => state.description)
+  const dispatch = useDispatch()
 
   const navigate = useNavigate();
 
@@ -34,13 +37,13 @@ const ProductPage = () => {
   return (
     <div>
       <div className={style.description}>
-        <Description active={descriptionActive} setActive={setDescriptionActive} header={'Характеристики и описание'}/>        
+        <Description header={'Характеристики и описание'}/>        
       </div>
       <div className={style.productP}>
         <img src={item?.image} className={style.image} alt=''/>
         <p>{item?.name}</p>
         <p>{item?.price}</p>  
-        <button className={style.button} onClick={() => {setDescriptionActive(!descriptionActive)}}>Описание {">"}</button>              
+        <button className={style.button} onClick={() => {dispatch(setIsDescriptionActive(!descriptionActive))}}>Описание {">"}</button>              
       </div>      
     </div>
   )

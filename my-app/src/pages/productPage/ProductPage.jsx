@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import Description from '../../components/description/Description'
 
 const ProductPage = () => {
-  const { id, itemId } = useParams();
+  const { categoryId, productId } = useParams();
   const [item, setItem] = useState();
   const [descriptionActive, setDescriptionActive] = useState(false);
 
@@ -15,7 +15,7 @@ const ProductPage = () => {
   useEffect(() => {
     async function fetchItems() {
       try {
-        const res = await axios.get('https://662a6f4f67df268010a3ec12.mockapi.io/category/' + id + '/items/' + itemId);
+        const res = await axios.get('https://662a6f4f67df268010a3ec12.mockapi.io/category/' + categoryId + '/items/' + productId);
         setItem(res.data);
       } catch (err) {
         console.log(err);

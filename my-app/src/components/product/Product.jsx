@@ -25,7 +25,7 @@ const Product = () =>{
         <div>
             <div className={style.grid}>
             {products.map((product)=>(
-                <CategoryCard key={product.itemId} {...product} />
+                <CategoryCard key={product.productId} {...product} />
             ))}
             </div>
         </div>

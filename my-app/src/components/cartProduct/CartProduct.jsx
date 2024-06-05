@@ -3,27 +3,27 @@ import style from './CartProduct.module.css';
 import { useDispatch } from 'react-redux';
 import { addItem, deleteItem, minusItem } from '../../redux/cartSlice';
 
-const CartProduct = ({image, name, price, itemId, id, count}) => {
+const CartProduct = ({image, name, price, productId, quantity}) => {
     const dispatch = useDispatch();
     const onClickAdd = () => {
-      dispatch(addItem({ itemId }));
+      dispatch(addItem({ productId }));
     };
   
     const onClickDelete = () => {
-      dispatch(deleteItem({ itemId }));
+      dispatch(deleteItem({ productId }));
     };
     const onClickMinus = () => {
-      dispatch(minusItem({ itemId }));
+      dispatch(minusItem({ productId }));
     };
     return (
       <div>
         <div className={style.root}>
           <img className = {style.image} src = {image} alt=''/>
           <p>{name}</p>
-          <button disabled={count == 1} onClick={onClickMinus}>
+          <button disabled={quantity == 1} onClick={onClickMinus}>
             -
           </button>
-          <p>{count}</p>
+          <p>{quantity}</p>
           <button onClick={onClickAdd}>+</button>
           <p>{price} руб</p>
           <button onClick={onClickDelete}>Delete</button>

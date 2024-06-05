@@ -5,7 +5,7 @@ import axios from 'axios';
 import CategoryProducts from '../categoryProducts/CategoryProducts';
 
 const Category = () => {
-    const { id } = useParams();
+    const { categoryId } = useParams();
     const [category, setCategory] = React.useState();
   
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Category = () => {
     React.useEffect(() => {
       async function fetchCategories() {
         try {
-          const res = await axios.get('https://662a6f4f67df268010a3ec12.mockapi.io/category/' + id);
+          const res = await axios.get('https://662a6f4f67df268010a3ec12.mockapi.io/category/' + categoryId);
          setCategory(res.data);
         } catch (err) {
           console.log(err);

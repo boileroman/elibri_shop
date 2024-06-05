@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 
 const MenuCatalog = ({header}) => {
   const categories = useSelector((state) => state.product.products);
-  const { id } = useParams();
+  const { categoryId } = useParams();
   const dispatch = useDispatch();
   const {isActive} = useSelector((state)=>state.menu)
 
@@ -17,7 +17,7 @@ const MenuCatalog = ({header}) => {
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const res = await axios.get('https://662a6f4f67df268010a3ec12.mockapi.io/category/' + id + 'items');
+        const res = await axios.get('https://662a6f4f67df268010a3ec12.mockapi.io/category/' + categoryId + 'items');
         dispatch(setProducts(res.data));
       } catch (err) {
         console.log(err);
@@ -29,14 +29,14 @@ const MenuCatalog = ({header}) => {
 
   console.log(categories)
   return (
-    <div className={isActive ? style.menu.active : style.menu}>
-      <div className={style.blur}/>
-      <div className={style.menu__content}>
+    <div className={style.menu}>
+      <div className={isActive ? style.blur : style.no_blur}/>
+      <div className={isActive ? `${style.menu__content} ${style.active}` : style.menu__content}>
         <div className={style.menu__header}>{header}</div>
         <ul>
           {categories.map(category => 
             <li className={style.list}>
-              <Link className={style.link} to={`/${category.id}`}>{category.id}</Link>
+              <Link className={style.link} to={`/${category.categoryId}`}>{category.name}</Link>
             </li>
           )}
         </ul>

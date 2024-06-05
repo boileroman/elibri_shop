@@ -10,31 +10,31 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
-      const isAdd = state.items.find((obj) => obj.itemId === action.payload.itemId);
+      const isAdd = state.items.find((obj) => obj.productId === action.payload.productId);
       if (isAdd) {
-        isAdd.count++;
+        isAdd.quantity++;
       } else {
         state.items.push({
           ...action.payload,
-          count: 1,
+          quantity: 1,
         });
       }
       state.totalPrice = state.items.reduce((sum, obj) => {
-        return obj.price * obj.count + sum;
+        return obj.price * obj.quantity + sum;
       }, 0);
     },
     minusItem: (state, action) => {
-      const isAdd = state.items.find((obj) => obj.itemId === action.payload.itemId);
+      const isAdd = state.items.find((obj) => obj.productId === action.payload.productId);
 
       if (isAdd) {
-        isAdd.count--;
+        isAdd.quantity--;
         state.totalPrice -= isAdd.price;
       }
     },
     deleteItem: (state, action) => {
-      state.items = state.items.filter((el) => el.itemId !== action.payload.itemId);
+      state.items = state.items.filter((el) => el.productId !== action.payload.productId);
       state.totalPrice = state.items.reduce((sum, obj) => {
-        return obj.price * obj.count + sum;
+        return obj.price * obj.quantity + sum;
       }, 0);
     },
     clearItems: (state) => {

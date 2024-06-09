@@ -4,13 +4,13 @@ export const userSlice = createSlice({
   name: 'user',
   initialState: {
     userName: '',
-    email: '',
+    email: JSON.parse(localStorage.getItem('userEmail')) || '',
     password: '',
     confirmPassword: '',
     oldPassword: '',
     newPassword: '',
     confirmNewPassword: '', 
-    isAuth: false,
+    isAuth: JSON.parse(localStorage.getItem('isAuth')) || false,
   },
   reducers: {
     setUserName: (state, action) => {
@@ -35,6 +35,7 @@ export const userSlice = createSlice({
       state.confirmNewPassword = action.payload;
     },
     setIsAuth: (state, action) => {
+      console.log("Setting isAuth:", action.payload);
       state.isAuth = action.payload;
     }
   },

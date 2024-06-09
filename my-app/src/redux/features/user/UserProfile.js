@@ -9,7 +9,7 @@ import hummingbird from '../../../components/assets/hummingbird 1.svg'
 const UserProfile = () => {
   const dispatch = useDispatch();
   const { userName, email } = useSelector(state => state.user);
-
+  const {isAuth} = useSelector((state)=>state.user)
 
 
 

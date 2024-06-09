@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import axios from 'axios';
+import axios from 'axios';
 import { setEmail } from './userSlice';
 import './RegistrationForm.css';
 import { Link } from 'react-router-dom';
@@ -17,14 +17,15 @@ const PasswordRecoveryForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // try {
-    //   const response = await axios.post('/api/v1/auth/resetPassword', { email });
-    //   console.log('Password recovery request successful', response.data);
+    try {
+      const response = await axios.post('http://25.49.57.113:4000/api/v1/auth/resetPassword', { email: email}, { headers: { 'Content-Type': 'application/json',
+      } },);
+      console.log('Password recovery request successful', response.data);
       
-    // } catch (error) {
-    //   console.error('ошибка с восстановлением пароля', error);
+    } catch (error) {
+      console.error('ошибка с восстановлением пароля', error);
 
-    // }
+    }
   };
 
 

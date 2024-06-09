@@ -4,6 +4,7 @@ import { setUserName, setEmail, setPassword, setConfirmPassword } from './userSl
 import './RegistrationForm.css';
 import { Link } from 'react-router-dom';
 import { LOGIN_ROUTE } from '../../../utils/const';
+import axios from 'axios';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -27,12 +28,26 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      const response = await axios.post('http://25.49.57.113:4000/api/v1/auth/registration', {
+        userName: userName,
+        email: email,
+        password: password,
+        confirmPassword: confirmPassword,
+      },            
+      { headers: { 'Content-Type': 'application/json',
+       } },);
+      console.log('Registration successful', response.data);
+      localStorage.setItem('userEmail', JSON.stringify(email));
+
+    } catch (error) {
+      console.error('Ошибка с регистрацией', error);
+    }
     if (password !== confirmPassword) {
       alert("Пароли не совпадают");
       return;
     }
-
-
   };
 
   return (

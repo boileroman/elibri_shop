@@ -4,13 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import style from './OrderDecoration.module.css'
 import { clearItems } from '../../redux/cartSlice'
+import Cookies from 'js-cookie';
 
 const OrderDecoration = () => {
     const { items, totalPrice } = useSelector((state) => state.cart);
     const { name } = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const totalCount = items.reduce((sum, item) => sum + item.quantity, 0);
-  
+    const Cookie = Cookies.get('jwt-cookies');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [address, setAddress] = useState('');
@@ -26,7 +27,7 @@ const OrderDecoration = () => {
     const AddOrder = (items) => {
         axios
           .post(
-            'https://665f4c161e9017dc16f3a89c.mockapi.io/order',
+            'http://25.49.57.113:4000/api/v1/order/create',
             {
               cartItems: items.map(item => ({
                 productId: item.productId,
@@ -39,7 +40,9 @@ const OrderDecoration = () => {
               phoneNumber,
               cardNumber
             },
-            { headers: { 'Content-Type': 'application/json' } },
+            { headers: { 'Content-Type': 'application/json',
+              'Authorization': `Bearer ${Cookie}`,
+             } },
           )
           .then(response => {
             console.log('Order placed successfully:', response);

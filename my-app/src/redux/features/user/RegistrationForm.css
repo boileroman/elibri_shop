@@ -1,65 +1,80 @@
 
 .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  
-  }
-  
-  .form-box {
-    background-color: #CFCFCF;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-  }
-  
-  .form-box h2 {
-    color: #fff;
-    background-color: #CFCFCF;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
-    text-align: left; 
-    font-style: italic;
-    font-weight: bold;
-    margin: -20px -20px 20px -20px;
-  }
-  
-  .form-box div {
-    margin-bottom: 15px;
-  }
-  
-  .form-box label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-box input {
-    width: 100%; 
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    box-sizing: border-box;
-  }
-  
-  .form-box button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .form-box button:hover {
-    background-color: #0056b3;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 150px; 
+}
 
-  .replace-block{
-    margin-top: 15px
-  }
-  
+.close-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: #000; 
+}
+
+
+
+.form-box {
+  background: linear-gradient(180deg, #88A7F9 0%, #F4F7FF 100%);
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 500px; 
+  z-index: 1;
+}
+
+.form-box h2 {
+  color: #fff;
+  padding: 38px;
+  border-radius: 10px 10px 0 0;
+  text-align: left; 
+  font-style: italic;
+  font-weight: bold;
+  font-size: 40px;
+  margin: -40px -40px 20px -40px; 
+  font-weight: 900; 
+}
+
+
+.form-box div {
+  margin-bottom: 20px; 
+}
+
+.form-box label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 18px; 
+}
+
+.form-box input {
+  width: 100%; 
+  padding: 20px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 18px; 
+}
+
+.form-box button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.form-box button:hover {
+  background-color: #0056b3;
+}
+
+.replace-block {
+  margin-top: 40px; 
+}

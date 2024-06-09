@@ -3,12 +3,16 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   items: JSON.parse(localStorage.getItem('cartProducts')) || [],
   totalPrice: JSON.parse(localStorage.getItem('totalPrice')) || 0,
+  isSelected: true,
 };
 
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    setIsSelected: (state, action) => {
+      state.isSelected = action.payload;
+    },
     addItem: (state, action) => {
       const isAdd = state.items.find((obj) => obj.productId === action.payload.productId);
       if (isAdd) {
@@ -44,6 +48,6 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addItem, deleteItem, clearItems, minusItem } = cartSlice.actions;
+export const { addItem, deleteItem, clearItems, minusItem, setIsSelected } = cartSlice.actions;
 
 export default cartSlice.reducer;

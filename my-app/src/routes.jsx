@@ -8,8 +8,9 @@ import OrderDecoration from "./pages/orderDecoration/OrderDecoration"
 import ProductPage from "./pages/productPage/ProductPage"
 import Profile from "./pages/profile/Profile"
 import RecoveryPassword from "./pages/recoveryPassword/RecoveryPassword"
+import Search from "./pages/search/Search"
 import Shop from "./pages/Shop"
-import { CART_ROUTE, CATEGORY_ROUTE, CHANGE_PASSWORD_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, ORDER_FORM_ROUTE, ORDER_ROUTE, RECOVERY_PASSWORD_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "./utils/const"
+import { CART_ROUTE, CATEGORY_ROUTE, CHANGE_PASSWORD_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, ORDER_FORM_ROUTE, ORDER_ROUTE, RECOVERY_PASSWORD_ROUTE, REGISTRATION_ROUTE, SEARCH_ROUTE, SHOP_ROUTE } from "./utils/const"
 
 
 export const authRoutes = [
@@ -41,12 +42,24 @@ export const publicRoutes = [
         Component: Shop
     },
     {
+        path: CART_ROUTE,
+        Component: Login
+    },
+    {
+        path: ORDER_ROUTE,
+        Component: Login
+    },
+    {
         path: CATEGORY_ROUTE + '/:productId',
         Component: ProductPage
     },
     {
         path: CATEGORY_ROUTE,
         Component: Category
+    },
+    {
+        path: SEARCH_ROUTE,
+        Component: Search
     },
     {
         path: REGISTRATION_ROUTE,

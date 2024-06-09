@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 0px;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
@@ -8,23 +8,29 @@ body {
 .profile-container {
   width: 100%;
   max-width: 1000px;
-  margin: 20px auto 100px; 
-  padding: 50px;
+  margin-top: 260px; 
+  margin-left: 460px;
+  padding: 35px;
   border-radius: 15px;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.3);
   position: relative;
 }
 
 .logout-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
   color: black;
   transition: color 0.3s ease;
   margin-right: 20px;
-  margin-top: 10px;  
+  margin-top: 10px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;  
 }
 
 .logout-button:hover {
@@ -41,8 +47,17 @@ body {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #ddd;
+  background-color: #567999;
   margin-right: 20px;
+
+}
+
+.profile_pic_icon{
+  position: relative;
+  margin-top: 10px;
+  margin-left: 5px;
+  height: 84%;
+  width: 84%;
 }
 
 .profile-info h2 {
@@ -56,14 +71,29 @@ body {
 }
 
 .profile-section {
+  width: 180px;
   padding: 10px 0;
   cursor: pointer;
   transition: color 0.3s ease;
   text-decoration: none;
   display: grid;
   color: black;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
 }
 
 .profile-section:hover {
   color: blue;
+}
+
+.profile-stats-text{
+  color: black;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 440;
+  font-size: 28px;
+  line-height: 29px;
 }

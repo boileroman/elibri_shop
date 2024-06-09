@@ -1,7 +1,140 @@
 .cart {
     margin-top: 140px;
+    padding-top: 40px;
+    padding-left: 100px;
 }
 
 .items{
+    display: grid;
+}
+
+.header{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 59px;
+    color: #000000;
+}
+
+.choose{
+    margin-top: 20px;
     display: flex;
+    width: 1100px;
+    height: 100px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: -2px 2px 5px rgba(39, 39, 39, 0.3); 
+    padding-top: 15px;
+    padding-left: 20px; 
+}
+
+.cart__content{
+    display: flex;
+}
+
+.order_decoration{
+    padding: 25px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 620px;
+    height: 450px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: -2px 2px 5px rgba(39, 39, 39, 0.3); 
+}
+
+.total_price{
+    margin-top: 180px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #000000;
+}
+.order_amount{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #A0A0A0;
+}
+
+.order_button{
+    border-radius: 15px;
+    border: none;
+    background-color: #5459D7;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    position: absolute;
+    width: 570px;
+    height: 60px;
+    color: #FFFFFF;
+}
+
+.order_button:hover {
+    background: linear-gradient(90deg, #5459D7 0%, #4578DA 72.5%, #2D8BE1 100%);
+  }
+
+.total_price__value{
+    position: relative;
+    left: 300px;
+}
+
+.order_decoration__header{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #4A4A4A;
+}
+
+.choose__text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #4A4A4A;
+    margin-left: 5px;
+}
+
+.check{
+    display: flex;
+    width: 200px;
+}
+
+.clear{
+    border: none;
+    background: none;
+    height: 30px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+    color: #BA0000;
+}
+.clear:hover{
+    color: #800000;
+}
+
+.choose_left_part{
+    display: grid;
+    padding-bottom: 10px;
+}
+
+.order_delivery{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #A0A0A0;
 }

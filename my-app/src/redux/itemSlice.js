@@ -10,7 +10,7 @@ export const itemSlice = createSlice({
     reducers: {
         setItems: (state, action) =>{
             state.items = action.payload
-        }
+        },
     },
 })
 

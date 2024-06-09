@@ -2,12 +2,16 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './UserProfile.css';
 import { Link } from 'react-router-dom';
-import { CHANGE_PASSWORD_ROUTE, ORDER_ROUTE } from '../../../utils/const';
+import { CART_ROUTE, CHANGE_PASSWORD_ROUTE, ORDER_ROUTE } from '../../../utils/const';
 import { setIsAuth } from './userSlice';
+import hummingbird from '../../../components/assets/hummingbird 1.svg'
 
 const UserProfile = () => {
   const dispatch = useDispatch();
-  const { name, email } = useSelector(state => state.user);
+  const { userName, email } = useSelector(state => state.user);
+
+
+
 
   const handleLogout = async () => {
     dispatch(setIsAuth(false))
@@ -18,17 +22,15 @@ const UserProfile = () => {
     <div className="profile-container">
       <div className="logout-button" onClick={handleLogout}>Выход</div>
       <div className="profile-header">
-        <div className="profile-pic"></div>
+        <div className="profile-pic"><img className='profile_pic_icon' src={hummingbird} alt=''/></div>
         <div className="profile-info">
-          <h2>{name}</h2>
+          <h2 className='profile-stats-text'>{userName}</h2>
           <p>{email}</p>
         </div>
       </div>
       <Link to={CHANGE_PASSWORD_ROUTE}className="profile-section">Смена пароля</Link>
-      <Link to={ORDER_ROUTE} className="profile-section">Заказы</Link>
-      <div className="profile-section">Адреса</div>
-      <div className="profile-section">Способы оплаты</div>
-      <div className="profile-section">Отзывы</div>
+      <Link to={ORDER_ROUTE} className="profile-section">Мои заказы</Link>
+      <Link to={CART_ROUTE} className="profile-section">Моя корзина</Link>
     </div>
   );
 };

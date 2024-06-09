@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
+import style from './OrderDecoration.module.css'
 import { clearItems } from '../../redux/cartSlice'
 
 const OrderDecoration = () => {
@@ -27,7 +28,7 @@ const OrderDecoration = () => {
           .post(
             'https://665f4c161e9017dc16f3a89c.mockapi.io/order',
             {
-              items: items.map(item => ({
+              cartItems: items.map(item => ({
                 productId: item.productId,
                 quantity: item.quantity,
                 image: item.image,  
@@ -54,9 +55,14 @@ const OrderDecoration = () => {
       AddOrder(items, firstName, lastName, address, phoneNumber, cardNumber);
     };
   return (
-    <div className="form-container">
-        <form onSubmit={handleSubmit}>
-          <div>
+    <div className={style.form_container}>
+        <form className="form-box" onSubmit={handleSubmit}>
+          <div className="form-row">
+            <p className={style.form__header}>
+              Оформление
+            </p>
+          </div>
+          <div className={style.form_row}>
             <label>
               Имя:
               <input
@@ -67,7 +73,7 @@ const OrderDecoration = () => {
               />
             </label>
           </div>
-          <div>
+          <div className="form-row">
             <label>
               Фамилия:
               <input
@@ -78,7 +84,7 @@ const OrderDecoration = () => {
               />
             </label>
           </div>
-          <div>
+          <div className="form-row">
             <label>
               Адрес:
               <input
@@ -89,7 +95,7 @@ const OrderDecoration = () => {
               />
             </label>
           </div>
-          <div>
+          <div className="form-row">
             <label>
               Номер телефона:
               <input
@@ -100,7 +106,7 @@ const OrderDecoration = () => {
               />
             </label>
           </div>
-          <div>
+          <div className="form-row">
             <label>
               Номер карты:
               <input

@@ -22,10 +22,11 @@ const PasswordRecoveryForm = () => {
     //   console.log('Password recovery request successful', response.data);
       
     // } catch (error) {
-    //   console.error('Error requesting password recovery', error);
+    //   console.error('ошибка с восстановлением пароля', error);
 
     // }
   };
+
 
   return (
     <div className="form-container">
@@ -39,9 +40,15 @@ const PasswordRecoveryForm = () => {
             value={email}
             onChange={handleEmailChange}
           />
-        </div>
+         </div>
+        <div className="form-row">
         <button type="submit">Восстановить пароль</button>
-        <Link to={LOGIN_ROUTE}>Вернуться</Link>      
+        </div>
+
+        <div>
+
+        <Link to={LOGIN_ROUTE}>Вернуться</Link>  
+        </div>    
       </form>
 
     </div>

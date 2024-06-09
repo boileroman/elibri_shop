@@ -1,33 +1,33 @@
 .image{
   width: 215px;
   height: 255px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 20px;
 }
 .item {
   margin: 20px;
   width: 1400px;
   height: 300px;
-  background-color: #f5f5f5;
+  background-color: white;
   display: flex;
   border-radius: 20px;
-  box-shadow: -2px 2px 5px rgba(39, 39, 39, 0.18);
+  box-shadow: -2px 2px 5px rgba(39, 39, 39, 0.3);
   box-sizing: border-box;
 }
 
 .rightpart{
   display: grid;
-  margin-left: 500px;
+  margin-left: 150px;
   height: 50px;
-  width: 100px;
-  margin-top: 80px;
+  width: 300px;
+  margin-top: 25px;
 }
 
 .about{
   display: flex;
   text-decoration: none;
   color: black;
-  width: 700px;
+  width: 950px;
   margin-top: 25px;
   margin-left: 25px;
   font-family: 'Montserrat';
@@ -42,8 +42,12 @@
   margin-left: 30px;
 }
 
-.name_quantity{
-  display: flex;
+.name_exact:hover{
+  color: #5459D7;
+}
+
+.name{
+  display: grid;
 
 }
 
@@ -58,6 +62,54 @@
 }
 
 .addCart{
-  display: flex;  
+  display: flex; 
 }
 
+.button{
+  border-radius: 5px;
+  border: none;
+  background-color: #5459D7;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  position: absolute;
+  width: 200px;
+  height: 60px;
+  color: #FFFFFF;
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #5459D7 0%, #4578DA 72.5%, #2D8BE1 100%);
+}
+
+.button.navigate{
+  background-color: #C1C3FA;
+  color: #5459D7;
+}
+
+.button.navigate:hover {
+  background: linear-gradient(90deg, #FFFFFF 0.5%, #C2C4FA 48.51%, #FFFFFF 100%);
+}
+
+.quantity{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #000000;
+}
+
+.addCart__delivery{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  color:#000000;
+  position: relative;
+  margin-top: 40px;
+}

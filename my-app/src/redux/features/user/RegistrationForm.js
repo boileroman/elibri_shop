@@ -1,17 +1,16 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
- import axios from 'axios';
-import { setName, setEmail, setPassword, setConfirmPassword } from './userSlice';
+import { setUserName, setEmail, setPassword, setConfirmPassword } from './userSlice';
 import './RegistrationForm.css';
 import { Link } from 'react-router-dom';
 import { LOGIN_ROUTE } from '../../../utils/const';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
-  const { name, email, password, confirmPassword } = useSelector(state => state.user);
+  const { userName, email, password, confirmPassword } = useSelector(state => state.user);
 
   const handleNameChange = (e) => {
-    dispatch(setName(e.target.value));
+    dispatch(setUserName(e.target.value));
   };
 
   const handleEmailChange = (e) => {
@@ -32,42 +31,26 @@ const RegistrationForm = () => {
       alert("Пароли не совпадают");
       return;
     }
-    
-    try {
-      const response = await axios.post('http://25.49.57.113:5000/api/v1/auth/registration', {
-        userName: name,
-        email: email,
-        password: password,
-        confirmPassword: confirmPassword
-      }, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      console.log('Registration successful', response.data);
-  
-    } catch (error) {
-      console.error('Ошибка при регистрации пользователя', error.response && error.response.data ? error.response.data : error.message);
-    }
+
+
   };
-
-
-
 
   return (
     <div className="form-container">
       <form className="form-box" onSubmit={handleSubmit}>
         <div className="form-row">
-          <h2>ELIBRI ID</h2>
+          <h2>
+            ELIBRI ID
+          </h2>
         </div>
         <div className="form-row">
-          <label htmlFor="name">Логин:</label>
+          <label htmlFor="userName">Логин:</label>
           <input
             type="text"
-            id="name"
-            value={name}
+            id="userName"
+            value={userName}
             onChange={handleNameChange}
-            autocomplete="username" 
+            autoComplete="username"
           />
         </div>
         <div className="form-row">
@@ -77,7 +60,7 @@ const RegistrationForm = () => {
             id="email"
             value={email}
             onChange={handleEmailChange}
-            autocomplete="email" 
+            autoComplete="email"
           />
         </div>
         <div className="form-row">
@@ -87,7 +70,7 @@ const RegistrationForm = () => {
             id="password"
             value={password}
             onChange={handlePasswordChange}
-            autocomplete="new-password" 
+            autoComplete="new-password"
           />
         </div>
         <div className="form-row">
@@ -97,15 +80,14 @@ const RegistrationForm = () => {
             id="confirmPassword"
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
-            autocomplete="new-password" 
+            autoComplete="new-password"
           />
         </div>
         <div className="form-row">
           <button type="submit">Зарегистрироваться</button>
         </div>
         <div>
-          <p>Уже есть аккаунт?</p>
-          <Link to={LOGIN_ROUTE}>Войти</Link>
+          <Link to={LOGIN_ROUTE}>Уже есть аккаунт? Войти</Link>
         </div>
       </form>
     </div>

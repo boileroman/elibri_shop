@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    name: '',
+    userName: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -13,8 +13,8 @@ export const userSlice = createSlice({
     isAuth: false,
   },
   reducers: {
-    setName: (state, action) => {
-      state.name = action.payload;
+    setUserName: (state, action) => {
+      state.userName = action.payload;
     },
     setEmail: (state, action) => {
       state.email = action.payload;
@@ -22,7 +22,7 @@ export const userSlice = createSlice({
     setPassword: (state, action) => {
       state.password = action.payload;
     },
-    setConfirmPassword: (state, action) => { 
+    setConfirmPassword: (state, action) => {
       state.confirmPassword = action.payload;
     },
     setOldPassword: (state, action) => {
@@ -31,7 +31,7 @@ export const userSlice = createSlice({
     setNewPassword: (state, action) => {
       state.newPassword = action.payload;
     },
-    setConfirmNewPassword: (state, action) => { 
+    setConfirmNewPassword: (state, action) => {
       state.confirmNewPassword = action.payload;
     },
     setIsAuth: (state, action) => {
@@ -40,6 +40,15 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setName, setEmail, setPassword, setConfirmPassword, setOldPassword, setNewPassword, setConfirmNewPassword, setIsAuth } = userSlice.actions; 
+export const {
+  setUserName,
+  setEmail,
+  setPassword,
+  setConfirmPassword,
+  setOldPassword,
+  setNewPassword,
+  setConfirmNewPassword,
+  setIsAuth,
+} = userSlice.actions;
 
 export default userSlice.reducer;

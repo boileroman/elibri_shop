@@ -1,0 +1,18 @@
+.orders{
+    margin-top: 141px;
+    padding-top: 30px;
+    padding-left: 100px;
+}
+
+.header{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 59px;
+    color: #000000;
+}
+
+.items{
+    display: grid;
+}

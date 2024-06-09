@@ -1,14 +1,23 @@
 import React from 'react'
 import style from './OrderCard.module.css'
-const OrderCard = ({items}) => {
+const OrderCard = ({cartItems, formattedOrderId, status, totalPrice, deliveryDateFormatted, orderDateFormatted}) => {
   return (
     <div className={style.items}>
-      {items.map((item, productId) => (
-        <div key={productId}>
-          <img src={item.image} alt='' />
-          <p>{item.quantity}</p>
-        </div>
-      ))}
+      <p className={style.delivery}>{orderDateFormatted}</p>
+      <p className={style.order__id}>{formattedOrderId}</p>
+      <div className={style.orders}>
+        {cartItems.map((item, productId) => (
+          <div key={productId}>
+            <img className={style.image} src={item.image} alt='' />
+          </div>
+        ))}        
+      </div>
+      <div className={style.options}>
+        <p className={style.status__text}>Статус: {status}</p>
+        <p className={style.payed__text}>Оплачено: {totalPrice}₽</p>
+        <p className={style.delivery__text}>Доставка: {deliveryDateFormatted}</p>
+      </div>
+
     </div>
   )
 }

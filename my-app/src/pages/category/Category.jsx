@@ -13,7 +13,7 @@ const Category = () => {
     React.useEffect(() => {
       async function fetchCategories() {
         try {
-          const res = await axios.get('https://662a6f4f67df268010a3ec12.mockapi.io/category/' + categoryId);
+          const res = await axios.get(`http://25.49.57.113:4000/api/v1/categories/categoryId?id=${categoryId}`);
          setCategory(res.data);
         } catch (err) {
           console.log(err);

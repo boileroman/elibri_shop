@@ -1,8 +1,18 @@
 .grid{
-    margin-top: 161px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     margin-left: 60px;
     position: absolute;
     z-index: 1;
+}
+
+.banner{
+    margin-top: 141px;
+    object-fit: cover;
+    margin-left: 82px;
+}
+
+.shop{
+    padding-top: 20px;
 }

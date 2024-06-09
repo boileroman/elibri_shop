@@ -11,9 +11,9 @@
   width: 410px;
   height: 400px;
   display: flex;
-  background: #E8E8E8;
+  background: white;
   border-radius: 20px;
-  box-shadow: -2px 2px 5px rgba(39, 39, 39, 0.18);
+  box-shadow: -2px 2px 5px rgba(39, 39, 39, 0.3);
   box-sizing: border-box;
 }
 
@@ -26,6 +26,9 @@
   font-size: 32px;
   line-height: 39px; 
   left: 25px
+}
+.link:hover{
+  color: #5459D7;
 }
 
 .text{

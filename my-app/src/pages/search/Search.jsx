@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router';
-import style from './CategoryProducts.module.css'
+import style from './Search.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { setCheapSortedItems, setExpensiveSortedItems, setItems } from '../../redux/itemSlice';
+import { setItems } from '../../redux/itemSlice';
 import ProductCard from '../../components/productCard/ProductCard';
 import down from '../../components/assets/toTheDown.svg'
+import { setValue } from '../../redux/searchSlice';
 
-const CategoryProducts = ({name}) => {
+const Search = () => {
   const { items } = useSelector((state) => state.items);
   const { categoryId } = useParams();
   const dispatch = useDispatch();
@@ -21,12 +22,13 @@ const CategoryProducts = ({name}) => {
   const radioItems = ['Любое', 'До 3 дней', 'До 5 дней', 'До недели'];
   const [maxDeliveryDays, setMaxDeliveryDays] = useState(999);
   const [currentPage, setCurrentPage] = useState(1);
+  const {value, submit} = useSelector((state)=>state.search)
   const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const res = await axios.get(`http://25.49.57.113:4000/api/v1/product?maxDeliveryDays=${maxDeliveryDays}&sortOrder=${sortValue}&categoryId=${categoryId}&pageNumber=${currentPage}&pageSize=7`);
+        const res = await axios.get(`http://25.49.57.113:4000/api/v1/product?searchTerm=${value}&pageNumber=${currentPage}&pageSize=7&maxDeliveryDays=${maxDeliveryDays}&sortOrder=${sortValue}`);
         dispatch(setItems(res.data));
       } catch (err) {
         console.log(err);
@@ -69,6 +71,7 @@ const CategoryProducts = ({name}) => {
     setAccordionOpen(!accordionOpen);
   };
 
+
   const handleSortChange = (sortType) => {
     switch (sortType) {
       case 'Без сортировки':
@@ -99,7 +102,7 @@ const CategoryProducts = ({name}) => {
 
   return (
     <div className={style.all}>
-      <p className={style.name}>{name}: {items.totalItems}</p>
+      <p className={style.name}>Всего: {items.totalItems}</p>
       <div className={style.delivery_products}>
         <form onSubmit={handleSubmit} className={style.delivery_time}>
           <label className={style.delivery_name_items}>
@@ -143,7 +146,7 @@ const CategoryProducts = ({name}) => {
             ))}
             <button disabled={currentPage === items.totalPages} onClick={() => setCurrentPage(currentPage + 1)}>дальше</button>
           </div>
-          )}           
+          )}               
         </div>     
       </div>
 
@@ -151,4 +154,4 @@ const CategoryProducts = ({name}) => {
   );
 }
 
-export default CategoryProducts
+export default Search

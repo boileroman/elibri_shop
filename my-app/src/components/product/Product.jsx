@@ -5,14 +5,17 @@ import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../../redux/productSlice";
 import style from './Product.module.css'
+import { Link } from "react-router-dom";
+import banner from '../assets/banner1.svg'
 
 const Product = () =>{
-    const products = useSelector((state) => state.product.products);
+    const products = useSelector((state) => state.products.products);
+
 
     const dispatch = useDispatch()
 
     const fetchItems = () =>{
-        axios.get('https://662a6f4f67df268010a3ec12.mockapi.io/category').then(res=>{
+        axios.get('http://25.49.57.113:4000/api/v1/categories/all').then(res=>{
         dispatch(setProducts(res.data))
         }); 
     };
@@ -22,7 +25,8 @@ const Product = () =>{
     }, []);
 
     return(
-        <div>
+        <div className={style.shop}>
+            <Link to={`/${4}`}><img className={style.banner} src={banner} alt=''/></Link>
             <div className={style.grid}>
             {products.map((product)=>(
                 <CategoryCard key={product.productId} {...product} />

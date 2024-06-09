@@ -34,13 +34,14 @@ const ChangePasswordForm = () => {
     //     oldPassword,
     //     newPassword
     //   });
-    //   console.log('Password change successful', response.data);
+    //   console.log('пароль успешно изменен', response.data);
       
     // } catch (error) {
-    //   console.error('Error changing password', error);
+    //   console.error('ошибка с  изменением', error);
      
     // }
   };
+
 
   return (
     <div className="form-container">

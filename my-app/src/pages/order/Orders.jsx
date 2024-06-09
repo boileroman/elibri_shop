@@ -28,8 +28,9 @@ const Orders = () => {
 
 
   return (
-    <div>
-      <div className={style.grid}>
+    <div className={style.orders}>
+      <p className={style.header}>Заказы: {items.length}</p>
+      <div className={style.items}>
         {items.map((order)=>(
           <OrderCard key={order.orderId} {...order}/>
         ))}

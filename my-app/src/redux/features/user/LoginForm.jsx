@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { RECOVERY_PASSWORD_ROUTE, REGISTRATION_ROUTE } from '../../../utils/const';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import Footer from '../../../components/footer/Footer';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -42,38 +43,43 @@ const LoginForm = () => {
 
 
   return (
-    <div className="form-container">       
-      <form className="form-box" onSubmit={handleSubmit}>
-       <div className="form-row">
-        <h2>ELIBRI ID</h2>
-        </div>
+    <div>
+      <div className="form-container">       
+        <form className="form-box" onSubmit={handleSubmit}>
         <div className="form-row">
-          <label htmlFor="userName">Логин</label>
-          <input
-            type="text"
-            id="userName"
-            value={userName}
-            onChange={handleUserNameChange}
-          />
-        </div>
-         <div className="form-row">
-          <label htmlFor="password">Пароль</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <button type="submit">Войти</button>
-        <div className="replace-block">
-          <Link to={REGISTRATION_ROUTE}>Нет аккаунта? Создать аккаунт</Link>
-        </div>
-        <div>
-          <Link to={RECOVERY_PASSWORD_ROUTE}>Забыли пароль? Восстановить</Link>
-        </div>
-      </form>
+          <h2>ELIBRI ID</h2>
+          </div>
+          <div className="form-row">
+            <label htmlFor="userName">Логин</label>
+            <input
+              type="text"
+              id="userName"
+              value={userName}
+              onChange={handleUserNameChange}
+            />
+          </div>
+          <div className="form-row">
+            <label htmlFor="password">Пароль</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </div>
+          <button type="submit">Войти</button>
+          <div className="replace-block">
+            <Link to={REGISTRATION_ROUTE}>Нет аккаунта? Создать аккаунт</Link>
+          </div>
+          <div>
+            <Link to={RECOVERY_PASSWORD_ROUTE}>Забыли пароль? Восстановить</Link>
+          </div>
+        </form>
+
+      </div> 
+      <Footer/>           
     </div>
+
   );
 };
 

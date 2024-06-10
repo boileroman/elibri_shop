@@ -5,6 +5,7 @@ import { setEmail } from './userSlice';
 import './RegistrationForm.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE } from '../../../utils/const';
+import Footer from '../../../components/footer/Footer';
 
 const PasswordRecoveryForm = () => {
   const dispatch = useDispatch();
@@ -32,29 +33,33 @@ const PasswordRecoveryForm = () => {
 
 
   return (
-    <div className="form-container">
-      <form className="form-box" onSubmit={handleSubmit}>
-        <h2>ELIBRI ID</h2>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-         </div>
-        <div className="form-row">
-        <button type="submit">Восстановить пароль</button>
-        </div>
+    <div>
+      <div className="form-container">
+        <form className="form-box" onSubmit={handleSubmit}>
+          <h2>ELIBRI ID</h2>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+          </div>
+          <div className="form-row">
+          <button type="submit">Восстановить пароль</button>
+          </div>
 
-        <div>
+          <div>
 
-        <Link to={LOGIN_ROUTE}>Вернуться</Link>  
-        </div>    
-      </form>
+          <Link to={LOGIN_ROUTE}>Вернуться</Link>  
+          </div>    
+        </form>
 
+      </div>
+      <Footer/>            
     </div>
+
   );
 };
 

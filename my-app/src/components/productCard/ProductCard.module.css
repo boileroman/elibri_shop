@@ -42,6 +42,9 @@
   margin-left: 30px;
 }
 
+.name_exact{
+  font-weight: 500;
+}
 .name_exact:hover{
   color: #5459D7;
 }

@@ -10,6 +10,7 @@ import { Navigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import { ORDER_FORM_ROUTE } from '../../utils/const'
 import { setIsSelected } from '../../redux/cartSlice'
+import Footer from '../../components/footer/Footer'
 
 const Cart = () => {
   const {isSelected} = useSelector((state)=>state.cart)  
@@ -41,44 +42,48 @@ const Cart = () => {
     return 'дней';
   };
   return (
-    <div className={style.cart}>
-      <p className={style.header}>Корзина</p>
-      <div className={style.cart__content}>
-        <div>
-          <div className={style.choose}>
-            <div className={style.choose_left_part}>
-              <p className={style.choose__text}>Товаров: {totalCount}</p>
-              <button className={style.clear} onClick={()=>dispatch(clearItems())}>
-                Очистить
-              </button>              
-            </div>
-          </div>
-          <div className={style.items}>
-            {items.map((obj) => (
-              <CartProduct key={obj.productId} {...obj} />          
-            ))}
-          </div>         
-        </div>      
-        <div className={style.order_decoration}>
+    <div>
+      <div className={style.cart}>
+        <p className={style.header}>Корзина</p>
+        <div className={style.cart__content}>
           <div>
-            <p className={style.order_decoration__header}>Оформление</p>
-            <p className={style.order_amount}>
-              Товаров (<span>{totalCount}</span>{''}) <span className={style.total_price__value}>{totalPrice}₽</span>
-            </p>
-            <p className={style.order_delivery}>Заказ придет через {biggestDeliveryDays} {getDeliveryDaysText(biggestDeliveryDays)}</p>            
-            <p className={style.total_price}>
-              Всего <span className={style.total_price__value}>{totalPrice}₽</span>
-            </p>        
-          </div>
-          <Link to={ORDER_FORM_ROUTE}>
-            <button className={style.order_button}>
-              Оформить заказ
-            </button>
-          </Link>        
-        </div>        
-      </div>
+            <div className={style.choose}>
+              <div className={style.choose_left_part}>
+                <p className={style.choose__text}>Товаров: {totalCount}</p>
+                <button className={style.clear} onClick={()=>dispatch(clearItems())}>
+                  Очистить
+                </button>              
+              </div>
+            </div>
+            <div className={style.items}>
+              {items.map((obj) => (
+                <CartProduct key={obj.productId} {...obj} />          
+              ))}
+            </div>         
+          </div>      
+          <div className={style.order_decoration}>
+            <div>
+              <p className={style.order_decoration__header}>Оформление</p>
+              <p className={style.order_amount}>
+                Товаров (<span>{totalCount}</span>{''}) <span className={style.total_price__value}>{totalPrice}₽</span>
+              </p>
+              <p className={style.order_delivery}>Заказ придет через {biggestDeliveryDays} {getDeliveryDaysText(biggestDeliveryDays)}</p>            
+              <p className={style.total_price}>
+                Всего <span className={style.total_price__value}>{totalPrice}₽</span>
+              </p>        
+            </div>
+            <Link to={ORDER_FORM_ROUTE}>
+              <button className={style.order_button}>
+                Оформить заказ
+              </button>
+            </Link>        
+          </div>        
+        </div>
 
+      </div>
+      <Footer/>            
     </div>
+
   )
 }
 

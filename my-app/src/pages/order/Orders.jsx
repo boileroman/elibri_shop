@@ -7,6 +7,7 @@ import { setOrders } from '../../redux/orderSlice';
 import OrderCard from '../orderCard/OrderCard';
 import style from './Orders.module.css'
 import Cookies from 'js-cookie';
+import Footer from '../../components/footer/Footer';
 
 const Orders = () => {
   const items = useSelector((state) => state.orders.orders);
@@ -24,7 +25,6 @@ const Orders = () => {
         dispatch(setOrders(res.data));
       } catch (err) {
         console.log(err);
-        navigate('/');
       }
     }
     fetchOrders();
@@ -32,14 +32,19 @@ const Orders = () => {
 
 
   return (
-    <div className={style.orders}>
-      <p className={style.header}>Заказы: {items.length}</p>
-      <div className={style.items}>
-        {items.map((order)=>(
-          <OrderCard key={order.orderId} {...order}/>
-        ))}
-      </div>
+    <div>
+      <div className={style.orders}>
+        <p className={style.header}>Заказы: {items.length}</p>
+        <div className={style.items}>
+          {items.map((order)=>(
+            <OrderCard key={order.orderId} {...order}/>
+          ))}
+        </div>
+
+      </div> 
+      <Footer/>     
     </div>
+
   )
 }
 

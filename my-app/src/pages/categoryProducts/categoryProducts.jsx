@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { setCheapSortedItems, setExpensiveSortedItems, setItems } from '../../redux/itemSlice';
 import ProductCard from '../../components/productCard/ProductCard';
 import down from '../../components/assets/toTheDown.svg'
+import Footer from '../../components/footer/Footer';
 
 const CategoryProducts = ({name}) => {
   const { items } = useSelector((state) => state.items);
@@ -146,7 +147,7 @@ const CategoryProducts = ({name}) => {
           )}           
         </div>     
       </div>
-
+      <Footer/>
     </div>
   );
 }

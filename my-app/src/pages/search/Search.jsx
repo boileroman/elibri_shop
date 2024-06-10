@@ -8,6 +8,7 @@ import { setItems } from '../../redux/itemSlice';
 import ProductCard from '../../components/productCard/ProductCard';
 import down from '../../components/assets/toTheDown.svg'
 import { setValue } from '../../redux/searchSlice';
+import Footer from '../../components/footer/Footer';
 
 const Search = () => {
   const { items } = useSelector((state) => state.items);
@@ -149,7 +150,7 @@ const Search = () => {
           )}                
         </div>     
       </div>
-
+      <Footer/>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import './RegistrationForm.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE, PROFILE_ROUTE } from '../../../utils/const';
 import Cookies from 'js-cookie';
+import Footer from '../../../components/footer/Footer';
 
 const ChangePasswordForm = () => {
   const dispatch = useDispatch();
@@ -50,46 +51,51 @@ const ChangePasswordForm = () => {
 
 
   return (
-    <div className="form-container">
-      <form className="form-box" onSubmit={handleSubmit}>
-        <div className="form-row">
-          <h2>ELIBRI ID</h2>
-        </div>
-        <div className="form-row">
-          <label htmlFor="oldPassword">Старый пароль:</label>
-          <input
-            type="password"
-            id="oldPassword"
-            value={oldPassword}
-            onChange={handleOldPasswordChange}
-          />
-        </div>
-        <div className="form-row">
-          <label htmlFor="newPassword">Новый пароль:</label>
-          <input
-            type="password"
-            id="newPassword"
-            value={newPassword}
-            onChange={handleNewPasswordChange}
-          />
-        </div>
-        <div className="form-row">
-          <label htmlFor="confirmNewPassword">Подтвердите новый пароль:</label>
-          <input
-            type="password"
-            id="confirmNewPassword"
-            value={confirmNewPassword}
-            onChange={handleConfirmNewPasswordChange}
-          />
-        </div>
-        <div className="form-row">
-          <button type="submit">Сменить пароль</button>
-        </div>
-        <div>
-          <Link to={LOGIN_ROUTE}>Вернуться к профилю</Link>
-        </div>
-      </form>
+    <div>
+      <div className="form-container">
+        <form className="form-box" onSubmit={handleSubmit}>
+          <div className="form-row">
+            <h2>ELIBRI ID</h2>
+          </div>
+          <div className="form-row">
+            <label htmlFor="oldPassword">Старый пароль:</label>
+            <input
+              type="password"
+              id="oldPassword"
+              value={oldPassword}
+              onChange={handleOldPasswordChange}
+            />
+          </div>
+          <div className="form-row">
+            <label htmlFor="newPassword">Новый пароль:</label>
+            <input
+              type="password"
+              id="newPassword"
+              value={newPassword}
+              onChange={handleNewPasswordChange}
+            />
+          </div>
+          <div className="form-row">
+            <label htmlFor="confirmNewPassword">Подтвердите новый пароль:</label>
+            <input
+              type="password"
+              id="confirmNewPassword"
+              value={confirmNewPassword}
+              onChange={handleConfirmNewPasswordChange}
+            />
+          </div>
+          <div className="form-row">
+            <button type="submit">Сменить пароль</button>
+          </div>
+          <div>
+            <Link to={LOGIN_ROUTE}>Вернуться к профилю</Link>
+          </div>
+        </form>
+
+      </div>  
+      <Footer/>          
     </div>
+
   );
 };
 

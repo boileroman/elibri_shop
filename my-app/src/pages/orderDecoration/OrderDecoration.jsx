@@ -7,6 +7,7 @@ import { clearItems } from '../../redux/cartSlice'
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router';
 import { ORDER_ROUTE } from '../../utils/const';
+import Footer from '../../components/footer/Footer';
 
 const OrderDecoration = () => {
     const { items, totalPrice } = useSelector((state) => state.cart);
@@ -61,71 +62,76 @@ const OrderDecoration = () => {
       AddOrder(items, firstName, lastName, address, phoneNumber, cardNumber);
     };
   return (
-    <div className={style.form_container}>
-        <form className="form-box" onSubmit={handleSubmit}>
-          <div className="form-row">
-            <p className={style.form__header}>
-              Оформление
-            </p>
-          </div>
-          <div className={style.form_row}>
-            <label>
-              Имя:
-              <input
-                type="text"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-              />
-            </label>
-          </div>
-          <div className="form-row">
-            <label>
-              Фамилия:
-              <input
-                type="text"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                required
-              />
-            </label>
-          </div>
-          <div className="form-row">
-            <label>
-              Адрес:
-              <input
-                type="text"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                required
-              />
-            </label>
-          </div>
-          <div className="form-row">
-            <label>
-              Номер телефона:
-              <input
-                type="tel"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                required
-              />
-            </label>
-          </div>
-          <div className="form-row">
-            <label>
-              Номер карты:
-              <input
-                type="text"
-                value={cardNumber}
-                onChange={(e) => setCardNumber(e.target.value)}
-                required
-              />
-            </label>
-          </div>
-          <button type="submit">Оформить заказ</button>
-        </form>
+    <div>
+      <div className={style.form_container}>
+          <form className="form-box" onSubmit={handleSubmit}>
+            <div className="form-row">
+              <p className={style.form__header}>
+                Оформление
+              </p>
+            </div>
+            <div className={style.form_row}>
+              <label>
+                Имя:
+                <input
+                  type="text"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
+                />
+              </label>
+            </div>
+            <div className="form-row">
+              <label>
+                Фамилия:
+                <input
+                  type="text"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
+                />
+              </label>
+            </div>
+            <div className="form-row">
+              <label>
+                Адрес:
+                <input
+                  type="text"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  required
+                />
+              </label>
+            </div>
+            <div className="form-row">
+              <label>
+                Номер телефона:
+                <input
+                  type="tel"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  required
+                />
+              </label>
+            </div>
+            <div className="form-row">
+              <label>
+                Номер карты:
+                <input
+                  type="text"
+                  value={cardNumber}
+                  onChange={(e) => setCardNumber(e.target.value)}
+                  required
+                />
+              </label>
+            </div>
+            <button type="submit">Оформить заказ</button>
+          </form>
+
+      </div>
+      <Footer/>            
     </div>
+
   )
 }
 

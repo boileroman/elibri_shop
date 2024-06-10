@@ -14,6 +14,7 @@ import { CART_ROUTE } from '../../utils/const'
 import { setProducts } from '../../redux/productSlice'
 import { setRelated } from '../../redux/relatedSlice'
 import RelatedProductCard from '../../components/relatedProductCard/RelatedProductCard'
+import Footer from '../../components/footer/Footer'
 
 const ProductPage = () => {
   const { productId, categoryId } = useParams();
@@ -151,7 +152,8 @@ const ProductPage = () => {
             ))
           }          
         </div>
-      </div>     
+      </div>
+      <Footer/>     
     </div>
   )
 }

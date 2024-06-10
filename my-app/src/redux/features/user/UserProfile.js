@@ -7,6 +7,7 @@ import { setEmail, setIsAuth, setUserName } from './userSlice';
 import hummingbird from '../../../components/assets/hummingbird 1.svg'
 import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
+import Footer from '../../../components/footer/Footer';
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -36,19 +37,23 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="profile-container">
-      <div className="logout-button" onClick={handleLogout}>Выход</div>
-      <div className="profile-header">
-        <div className="profile-pic"><img className='profile_pic_icon' src={hummingbird} alt=''/></div>
-        <div className="profile-info">
-          <h2 className='profile-stats-text'>{userName}</h2>
-          <p>{email}</p>
+    <div>
+      <div className="profile-container">
+        <div className="logout-button" onClick={handleLogout}>Выход</div>
+        <div className="profile-header">
+          <div className="profile-pic"><img className='profile_pic_icon' src={hummingbird} alt=''/></div>
+          <div className="profile-info">
+            <h2 className='profile-stats-text'>{userName}</h2>
+            <p>{email}</p>
+          </div>
         </div>
-      </div>
-      <Link to={CHANGE_PASSWORD_ROUTE}className="profile-section">Смена пароля</Link>
-      <Link to={ORDER_ROUTE} className="profile-section">Мои заказы</Link>
-      <Link to={CART_ROUTE} className="profile-section">Моя корзина</Link>
+        <Link to={CHANGE_PASSWORD_ROUTE}className="profile-section">Смена пароля</Link>
+        <Link to={ORDER_ROUTE} className="profile-section">Мои заказы</Link>
+        <Link to={CART_ROUTE} className="profile-section">Моя корзина</Link>
+      </div> 
+      <Footer/>     
     </div>
+
   );
 };
 

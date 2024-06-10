@@ -5,6 +5,8 @@ import axios from 'axios';
 import style from './OrderDecoration.module.css'
 import { clearItems } from '../../redux/cartSlice'
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router';
+import { ORDER_ROUTE } from '../../utils/const';
 
 const OrderDecoration = () => {
     const { items, totalPrice } = useSelector((state) => state.cart);
@@ -17,7 +19,7 @@ const OrderDecoration = () => {
     const [address, setAddress] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');   
     const [cardNumber, setCardNumber] = useState(''); 
-
+    const navigate = useNavigate();
 
     useEffect(() => {
       localStorage.setItem('cartProducts', JSON.stringify(items));
@@ -47,6 +49,7 @@ const OrderDecoration = () => {
           .then(response => {
             console.log('Order placed successfully:', response);
             dispatch(clearItems());
+            navigate(ORDER_ROUTE)          
           })
           .catch(error => {
             console.error('Error placing order:', error);

@@ -8,6 +8,7 @@ import orderSlice from './orderSlice';
 import descriptionSlice from './descriptionSlice';
 import productSlice2 from './productSlice2';
 import searchSlice from './searchSlice';
+import relatedSlice from './relatedSlice';
 
 export const store = configureStore({
     reducer: {
@@ -20,5 +21,6 @@ export const store = configureStore({
       orders: orderSlice,
       description: descriptionSlice,
       search: searchSlice,
+      related: relatedSlice,
     },
   });

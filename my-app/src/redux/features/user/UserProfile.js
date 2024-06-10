@@ -1,20 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './UserProfile.css';
 import { Link } from 'react-router-dom';
 import { CART_ROUTE, CHANGE_PASSWORD_ROUTE, ORDER_ROUTE } from '../../../utils/const';
-import { setIsAuth } from './userSlice';
+import { setEmail, setIsAuth, setUserName } from './userSlice';
 import hummingbird from '../../../components/assets/hummingbird 1.svg'
+import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
 
 const UserProfile = () => {
   const dispatch = useDispatch();
   const { userName, email } = useSelector(state => state.user);
   const {isAuth} = useSelector((state)=>state.user)
 
+  useEffect(() => {
+    const token = Cookies.get('jwt-cookies');
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      const userName = decodedToken.sub;
+      const email = decodedToken.email; 
+      console.log(email)
+      dispatch(setEmail(email)); 
+      dispatch(setUserName(userName)); 
+      dispatch(setIsAuth(true)); 
+      localStorage.setItem('isAuth', JSON.stringify(isAuth)); 
+    }
+  }, [dispatch]);
+
 
 
   const handleLogout = async () => {
-    dispatch(setIsAuth(false))
+    dispatch(setIsAuth(false));
+    Cookies.remove('jwt-cookies');
     console.log("User logged out");
   };
 

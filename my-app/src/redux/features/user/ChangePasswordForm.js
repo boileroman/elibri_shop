@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { setOldPassword, setNewPassword, setConfirmNewPassword } from './userSlice';
 import './RegistrationForm.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE, PROFILE_ROUTE } from '../../../utils/const';
 import Cookies from 'js-cookie';
 
@@ -11,6 +11,7 @@ const ChangePasswordForm = () => {
   const dispatch = useDispatch();
   const { oldPassword, newPassword, confirmNewPassword } = useSelector(state => state.user);
   const Cookie = Cookies.get('jwt-cookies');
+  const navigate = useNavigate();
   const handleOldPasswordChange = (e) => {
     dispatch(setOldPassword(e.target.value));
   };
@@ -28,17 +29,17 @@ const ChangePasswordForm = () => {
 
     
     try {
-      const response = await axios.post('http://25.49.57.113:4000/api/v1/auth/changePassword', {
+      await axios.post('http://25.49.57.113:4000/api/v1/profile/changePassword', {
         oldPassword: oldPassword,
         newPassword: newPassword,
         confirmPassword: confirmNewPassword,
       }, { headers: { 'Content-Type': 'application/json',
         'Authorization': `Bearer ${Cookie}`,
       } },);
-      console.log('Пароль успешно изменен', response.data);
+      navigate(LOGIN_ROUTE)
       
     } catch (error) {
-      console.error('Ошибка с  изменением', error);
+      alert('Ошибка с изменением', error);
      
     }
     if (newPassword !== confirmNewPassword) {

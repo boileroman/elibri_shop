@@ -11,10 +11,14 @@ import right from '../../components/assets/toTheRight.svg'
 import { addItem } from '../../redux/cartSlice'
 import { Link } from 'react-router-dom'
 import { CART_ROUTE } from '../../utils/const'
+import { setProducts } from '../../redux/productSlice'
+import { setRelated } from '../../redux/relatedSlice'
+import RelatedProductCard from '../../components/relatedProductCard/RelatedProductCard'
 
 const ProductPage = () => {
   const { productId, categoryId } = useParams();
   const [item, setItem] = useState();
+  const { related } = useSelector((state)=>state.related)
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { descriptionActive } = useSelector((state) => state.description)
   const dispatch = useDispatch()
@@ -33,6 +37,15 @@ const ProductPage = () => {
       }
     }
     fetchItems();
+  }, []);
+
+  useEffect(()=>{
+    async function fetchProducts(){
+      const res = await axios.get(`http://25.49.57.113:4000/api/v1/product/withRelated?productId=${productId}`)
+      dispatch(setRelated(res.data));
+      console.log(res.data)
+    }
+    fetchProducts();
   }, []);
 
 
@@ -70,6 +83,11 @@ const ProductPage = () => {
   if (!item) {
     return 'Загрузка...';
   }
+
+  if (!related || related.length === 0) {
+    return <div></div>;
+  }
+
 
   return (
     <div>
@@ -123,7 +141,17 @@ const ProductPage = () => {
             <p className={style.delivery_days}>Доставка через {item?.deliveryDays} {getDeliveryDaysText(item?.deliveryDays)}</p>               
           </div>   
         </div>                   
-      </div>      
+      </div>
+      <div className={style.related}>
+        <p className={style.related__header}>Из той же категории</p>
+        <div className={style.related_products}>
+          {
+            related?.relatedProducts.map((related) => (
+              <RelatedProductCard key={related.productId} {...related} />
+            ))
+          }          
+        </div>
+      </div>     
     </div>
   )
 }

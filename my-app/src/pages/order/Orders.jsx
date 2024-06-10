@@ -17,7 +17,7 @@ const Orders = () => {
   useEffect(() => {
     async function fetchOrders() {
       try {
-        const res = await axios.get('http://25.49.57.113:4000/api/v1/order/userOrders',
+        const res = await axios.get('http://25.49.57.113:4000/api/v1/profile/userOrders',
           { headers: {
           'Authorization': `Bearer ${Cookie}`,
          } },);

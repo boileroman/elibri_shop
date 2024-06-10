@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserName, setEmail, setPassword, setConfirmPassword } from './userSlice';
 import './RegistrationForm.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE } from '../../../utils/const';
 import axios from 'axios';
 
@@ -26,11 +26,13 @@ const RegistrationForm = () => {
     dispatch(setConfirmPassword(e.target.value));
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://25.49.57.113:4000/api/v1/auth/registration', {
+      await axios.post('http://25.49.57.113:4000/api/v1/auth/registration', {
         userName: userName,
         email: email,
         password: password,
@@ -38,14 +40,17 @@ const RegistrationForm = () => {
       },            
       { headers: { 'Content-Type': 'application/json',
        } },);
-      console.log('Registration successful', response.data);
-      localStorage.setItem('userEmail', JSON.stringify(email));
-
+      navigate(LOGIN_ROUTE)
+      
     } catch (error) {
-      console.error('Ошибка с регистрацией', error);
+      alert('Ошибка с регистрацией', error);
     }
     if (password !== confirmPassword) {
       alert("Пароли не совпадают");
+      return;
+    }
+    else if (password.length < 6){
+      alert("Пароль должен содержать не менее 6 символов")
       return;
     }
   };

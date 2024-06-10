@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { setEmail } from './userSlice';
 import './RegistrationForm.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE } from '../../../utils/const';
 
 const PasswordRecoveryForm = () => {
@@ -14,16 +14,18 @@ const PasswordRecoveryForm = () => {
     dispatch(setEmail(e.target.value));
   };
 
+  const navigate = useNavigate()
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     try {
       const response = await axios.post('http://25.49.57.113:4000/api/v1/auth/resetPassword', { email: email}, { headers: { 'Content-Type': 'application/json',
       } },);
-      console.log('Password recovery request successful', response.data);
-      
+      alert('Пароль успешно восстановлен', response.data);
+      navigate(LOGIN_ROUTE)
     } catch (error) {
-      console.error('ошибка с восстановлением пароля', error);
+      alert('Ошибка с восстановлением пароля. Пользователя с такой электронной почтой не найдено', error);
 
     }
   };

@@ -139,14 +139,14 @@ const Search = () => {
             ))}
           </div>
           {items.totalItems > 7 && (
-          <div>
-            <button disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>назад</button>
+          <div className={style.pagination}>
+            <button className={style.pagination__prev} disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>Назад</button>
             {pages.map((page) => (
-              <button key={page} disabled={page === currentPage} onClick={() => handlePagination(page)}>{page}</button>
+              <button className={style.pagination__number} key={page} disabled={page === currentPage} onClick={() => handlePagination(page)}>{page}</button>
             ))}
-            <button disabled={currentPage === items.totalPages} onClick={() => setCurrentPage(currentPage + 1)}>дальше</button>
+            <button className={style.pagination__next} disabled={currentPage === items.totalPages} onClick={() => setCurrentPage(currentPage + 1)}>Дальше</button>
           </div>
-          )}               
+          )}                
         </div>     
       </div>
 

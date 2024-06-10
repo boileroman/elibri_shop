@@ -30,23 +30,15 @@ const LoginForm = () => {
         userName,
         password,
       });
-            
+      dispatch(setIsAuth(true))
+      localStorage.setItem('isAuth', JSON.stringify(isAuth));            
       const token = response.data.token;
       Cookies.set('jwt-cookies', token, { expires: 1 });
-
     } catch (error) {
-      console.error('ошибка со входом', error);
+      alert('Ошибка со входом, неправильные данные', error);
     }
   };
 
-
-  useEffect(() => {
-    console.log('useEffect: isAuth changed', isAuth);
-    if (isAuth) {
-      localStorage.setItem('isAuth', JSON.stringify(isAuth));
-      console.log("useEffect called with isAuth:", isAuth);
-    }
-  }, [isAuth]);
 
 
   return (
